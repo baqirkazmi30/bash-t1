@@ -66,7 +66,6 @@ BASE=$(git merge-base @ "$UPSTREAM")
 
 if [ $LOCAL = $REMOTE ]; then
     echo "Up-to-date" 
-    break
 elif [ $LOCAL = $BASE ]; then
     echo "Installing OVS"   
     ovs_installation
