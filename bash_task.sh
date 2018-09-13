@@ -9,7 +9,7 @@ sudo apt-get update
 sudo apt-get -y install git
 
 echo "Step 2. Clone Openvswitch git Repo"
-git clone https://github.com/wriaz/ovs.git
+git clone https://github.com/baqirkazmi30/ovs.git
 
 echo "Step 3. Install tools"
 sudo apt-get -y install autoconf libtool make
