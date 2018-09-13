@@ -62,8 +62,8 @@ do
 git fetch
 UPSTREAM=${1:-'@{u}'}
 LOCAL=$(git rev-parse @)
-REMOTE=$(git rev-parse "$a")
-BASE=$(git merge-base @ "$a")
+REMOTE=$(git rev-parse "$UPSTREAM")
+BASE=$(git merge-base @ "$UPSTREAM")
 
 echo "$UPSTREAM"
 echo "$LOCAL"
