@@ -20,8 +20,17 @@ cd ovs/
 ./configure --with-linux=/lib/modules/`uname -r`/build
 
 make
-
+a=echo $
+if ($a = 0) then
+sleep 3
+echo "Bulid is succedded"
+continue
+else
+echo "Build Failed with error "
+break
+fi
 echo "Step 5. Install OpenVswitch"
+#sudo make install 
 sudo make install
 sudo make modules_install
  
@@ -54,7 +63,7 @@ sudo ovs-vswitchd --pidfile --detach
 
 while [ 1 ]
 do
-  a=$(git ls-remote https://github.com/baqirkazmi30/ovs.git | grep refs/heads/master | cut -f 1)
+	a=$(git ls-remote https://github.com/baqirkazmi30/ovs.git | grep refs/heads/master | cut -f 1)
 	#UPSTREAM=${1:-'@{u}'}
 	LOCAL=$(git rev-parse @)	
 	REMOTE=$(git rev-parse "$a")
