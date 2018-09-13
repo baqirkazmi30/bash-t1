@@ -59,10 +59,10 @@ sudo ovs-vswitchd --pidfile --detach
 while [ 1 ]
 do
 git fetch https://github.com/baqirkazmi30/ovs.git
-#UPSTREAM=${1:-'@{u}'}
-LOCAL=$(git rev-parse @{0})
-REMOTE=$(git rev-parse @{0})
-BASE=$(git merge-base @{0})
+UPSTREAM=${1:-'@{u}'}
+LOCAL=$(git rev-parse @ )
+REMOTE=$(git rev-parse HEAD)
+BASE=$(git merge-base HEAD)
 
 echo "$UPSTREAM"
 echo "$LOCAL"
@@ -77,4 +77,3 @@ elif [ $LOCAL = $BASE ]; then
     ovs_installation
 fi
 done
-
