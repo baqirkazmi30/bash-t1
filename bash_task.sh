@@ -20,8 +20,9 @@ cd ovs/
 ./configure --with-linux=/lib/modules/`uname -r`/build
 
 make
-a=echo $
-if ($a = 0) then
+a=$(echo $?)
+echo "$a"
+if [ $a = 0 ]; then
 sleep 3
 echo "Bulid is succedded"
 continue
