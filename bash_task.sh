@@ -43,37 +43,31 @@ sudo ovs-vswitchd --pidfile --detach
 
 #timer()
 #{
- #while :
-   #do
-   # echo "Timer Started"
-   # for((i=180; i>0; i--))
-   # do
-   #    sleep 1
-  #   echo -ne "Wait for $i Sec"'\r'
- #   done
-    
-#done
+    #echo "Timer Started"
+    #for i in {i=180; i>0; i--}
+    #do
+     #  sleep 1
+     #  echo -ne "Wait for $i Sec"'\r'
+    #done
 #}
 
 
 while [ 1 ]
 do
-git fetch https://github.com/baqirkazmi30/ovs.git
-UPSTREAM=${1:-'@{u}'}
-LOCAL=$(git rev-parse @ )
-REMOTE=$(git rev-parse HEAD)
-BASE=$(git merge-base HEAD)
+  a=$(git ls-remote https://github.com/baqirkazmi30/ovs.git | grep refs/heads/master | cut -f 1)
+	#UPSTREAM=${1:-'@{u}'}
+	LOCAL=$(git rev-parse @)	
+	REMOTE=$(git rev-parse "$a")
+	#BASE=$(git merge-base @)
 
-echo "$UPSTREAM"
-echo "$LOCAL"
-echo "$REMOTE"
-echo "$BASE"
+	echo "$LOCAL"
+	echo "$REMOTE"
 
 
-if [ $LOCAL = $REMOTE ]; then
-    echo "Up-to-date" 
-elif [ $LOCAL = $BASE ]; then
-    echo "Installing OVS"   
-    ovs_installation
-fi
+	if [ $LOCAL = $REMOTE ]; then
+	echo "Up-to-date" 
+	else
+	echo "Installing OVS"   
+	ovs_installation
+ 	fi
 done
