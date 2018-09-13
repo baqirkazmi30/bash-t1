@@ -59,10 +59,10 @@ sudo ovs-vswitchd --pidfile --detach
 while [ 1 ]
 do
 git fetch https://github.com/baqirkazmi30/ovs.git
-UPSTREAM=${1:-'@{u}'}
+#UPSTREAM=${1:-'@{u}'}
 LOCAL=$(git rev-parse @{0})
-REMOTE=$(git rev-parse "$UPSTREAM")
-BASE=$(git merge-base @{0} "$UPSTREAM")
+REMOTE=$(git rev-parse @{0})
+BASE=$(git merge-base @{0})
 
 echo "$UPSTREAM"
 echo "$LOCAL"
