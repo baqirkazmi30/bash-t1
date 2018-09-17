@@ -20,7 +20,7 @@ sudo apt-get -y install autoconf libtool make &>> output.txt
 cd ovs/
 ./boot.sh &>> output.txt
 ./configure --with-linux=/lib/modules/`uname -r`/build &>> output.txt
-make &>> output.txt
+make > output.txt 2>&1
 b=$(echo $?)
 #T=$(date +%R)
 T=$(date +%d-%m-%Y,Time:%H-%M-%S)
@@ -96,5 +96,5 @@ build_status()
 
 while [ 1 ]
 do        
-        build_status
+        build_status >> status_file.txt
 done
