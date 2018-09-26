@@ -1,4 +1,4 @@
-# bash-t1
+# Bash Training
 
 ****
 
