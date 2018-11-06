@@ -5,7 +5,6 @@
 ### :diamond_shape_with_a_dot_inside: <a name="Bash Training">TASK # 1</a>
 
 
-
 * <b>Introduction</b>
    -In this README file i have palced all the information regarding my Bash Training Task. 
    
